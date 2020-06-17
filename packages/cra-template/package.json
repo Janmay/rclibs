@@ -1,6 +1,6 @@
 {
   "name": "@rclibs/cra-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React project template",
   "keywords": [
     "react",
@@ -8,10 +8,13 @@
     "template"
   ],
   "homepage": "",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
   "files": [
     "template",
     "template.json"
   ],
-  "gitHead": "abc9cbd4c14e1dc3a90530e28a077044f6ce653f"
+  "gitHead": "ca53863b599a1b28370908befa97d335009871e9"
 }
