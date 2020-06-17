@@ -1,13 +1,13 @@
 {
   "name": "@rclibs/cra-template",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React project template",
   "keywords": [
     "react",
     "create-react-app",
     "template"
   ],
-  "homepage": "",
+  "main": "template.json",
   "publishConfig": {
     "access": "public"
   },
