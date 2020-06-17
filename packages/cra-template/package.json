@@ -1,6 +1,6 @@
 {
   "name": "@rclibs/cra-template",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React project template",
   "keywords": [
     "react",
@@ -16,5 +16,5 @@
     "template",
     "template.json"
   ],
-  "gitHead": "ca53863b599a1b28370908befa97d335009871e9"
+  "gitHead": "4c0781922664b93f03e1a2e05ef0e400211d3cf6"
 }
