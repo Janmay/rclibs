@@ -48,9 +48,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "prettier"
     ],
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "*.{json,css,scss,md}": [
       "prettier"
     ]
   }
