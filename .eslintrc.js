@@ -2,7 +2,10 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react-hooks'],
   extends: [
-    'airbnb',
+    'eslint:recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:react/recommended',
@@ -10,6 +13,17 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  env: {
+    browser: true,
+    jest: true,
+    es6: true,
+    node: true,
+  },
   rules: {
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-explicit-any': 0,
@@ -20,6 +34,6 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-unused-vars': 'warn',
-    'no-unused-expressions': 'warn'
-  }
+    'no-unused-expressions': 'warn',
+  },
 };

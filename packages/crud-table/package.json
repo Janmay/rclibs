@@ -30,5 +30,12 @@
   },
   "bugs": {
     "url": "https://github.com/Janmay/rclibs/issues"
+  },
+  "dependencies": {
+    "antd": "^4.3.5",
+    "dumi": "^1.0.31"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
   }
 }
