@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {Table} from 'antd';
 import {ColumnsType, TableProps} from 'antd/es/table';
 import {RequestData} from './useFetchData';
@@ -6,12 +6,7 @@ import {RequestData} from './useFetchData';
 export interface CrudTableProps<T, U extends Record<string, any>>
   extends TableProps<T> {
   params?: U;
-  request?: (
-    params: U & {
-      pageSize?: number;
-      current?: number;
-    },
-  ) => Promise<RequestData<T>>;
+  request?: RequestData<T, U>;
 }
 
 const CrudTable = <
@@ -20,7 +15,15 @@ const CrudTable = <
 >(
   props: CrudTableProps<T, U>,
 ) => {
-  const {request} = props;
+  const {
+    request,
+    params = {},
+    pagination: propPagination,
+    columns: propColumns = [],
+    ...rest
+  } = props;
+
+  const [dataSource, setDataSource] = useState<T[]>([]);
 
   return <div></div>;
 };
