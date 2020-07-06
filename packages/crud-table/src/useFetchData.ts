@@ -7,14 +7,10 @@ export interface DataResult<T> extends Record<string, any> {
   total?: number;
 }
 
-export interface RequestData<T, U extends Record<string, any>> {
-  (
-    params: U & {
-      pageSize?: number;
-      current?: number;
-    },
-  ): Promise<DataResult<T>>;
-}
+export type RequestData<T> = (params: {
+  pageSize: number;
+  current: number;
+}) => Promise<DataResult<T>>;
 
 export interface UseFetchDataAction<T> {
   dataSource: T[];
@@ -40,7 +36,7 @@ interface PageInfo {
 }
 
 const useFetchData = <T>(
-  getData: RequestData<T, Record<string, any>>,
+  getData: RequestData<T>,
   defaultData?: T[],
   options?: {
     defaultCurrent?: number;

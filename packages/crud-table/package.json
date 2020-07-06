@@ -34,7 +34,8 @@
   "dependencies": {
     "ahooks": "^2.1.0",
     "antd": "^4.3.5",
-    "dumi": "^1.0.31"
+    "dumi": "^1.0.31",
+    "flatted": "^3.0.4"
   },
   "peerDependencies": {
     "react": "^16.13.1"
