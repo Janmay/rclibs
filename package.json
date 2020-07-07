@@ -5,6 +5,8 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "lerna run build",
+    "clean": "lerna run clean",
     "lint": "eslint --report-unused-disable-directives ."
   },
   "devDependencies": {
@@ -38,6 +40,7 @@
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rollup": "^2.20.0",
     "ts-jest": "^26.1.1",
     "typescript": "^3.9.5"
   },

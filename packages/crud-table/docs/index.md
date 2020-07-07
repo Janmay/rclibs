@@ -15,3 +15,4 @@ yarn add @rclibs/crud-table
 ```
 
 ## 示例
+<code src="./demo/single.tsx"/>

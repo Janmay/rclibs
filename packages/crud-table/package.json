@@ -26,7 +26,8 @@
     "url": "git+https://github.com/Janmay/rclibs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "../../scripts/build.sh",
+    "clean": "../../scripts/clean.sh"
   },
   "bugs": {
     "url": "https://github.com/Janmay/rclibs/issues"

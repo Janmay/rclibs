@@ -3,9 +3,11 @@ import {Table} from 'antd';
 import {ColumnsType, TableProps} from 'antd/es/table';
 import {stringify} from 'flatted';
 import useFetchData, {RequestData} from './useFetchData';
+import {genColumnList, mergePagination, TableColumns} from './utils';
 
 export interface CrudTableProps<T, U extends Record<string, unknown>>
-  extends TableProps<T> {
+  extends Omit<TableProps<T>, 'columns'> {
+  columns?: TableColumns<T>[];
   params?: U;
   request?: RequestData<T>;
   dealData?: (data: any[]) => any[];
@@ -29,6 +31,7 @@ const CrudTable = <
   } = props;
 
   const [dataSource, setDataSource] = useState<T[]>([]);
+  const [columns, setColumns] = useState<ColumnsType<T>>([]);
 
   // fetch table data
   const defaultPagination =
@@ -60,6 +63,10 @@ const CrudTable = <
     effects: [stringify(params)],
   });
 
+  // pagination
+  const pagination =
+    propPagination !== false && mergePagination<T>(propPagination, action);
+
   // update data
   useEffect(() => {
     setDataSource(request ? action.dataSource : props.dataSource || []);
@@ -75,5 +82,23 @@ const CrudTable = <
     }
   }, [stringify(propPagination)]);
 
-  return <div></div>;
+  // update columns
+  useEffect(() => {
+    const tableColumns = genColumnList<T>(propColumns);
+    setColumns(tableColumns);
+  }, [stringify(propColumns)]);
+
+  return (
+    <div>
+      <Table
+        {...rest}
+        loading={action.loading || props.loading}
+        dataSource={dataSource}
+        columns={columns}
+        pagination={pagination}
+      />
+    </div>
+  );
 };
+
+export default CrudTable;

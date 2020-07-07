@@ -16,4 +16,5 @@ module.exports = {
     ],
   ],
   plugins: ['@babel/plugin-transform-runtime'],
+  ignore: ['node_modules', '__tests__'],
 };
