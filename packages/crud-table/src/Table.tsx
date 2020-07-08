@@ -2,14 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {Table} from 'antd';
 import {ColumnsType, TableProps} from 'antd/es/table';
 import {stringify} from 'flatted';
-import useFetchData, {RequestData} from './useFetchData';
+import useFetchData, {DataResult} from './useFetchData';
 import {genColumnList, mergePagination, TableColumns} from './utils';
 
 export interface CrudTableProps<T, U extends Record<string, unknown>>
   extends Omit<TableProps<T>, 'columns'> {
   columns?: TableColumns<T>[];
   params?: U;
-  request?: RequestData<T>;
+  request?: (params: {
+    pageSize?: number;
+    current?: number;
+  }) => Promise<DataResult<T>>;
   dealData?: (data: any[]) => any[];
   defaultData?: T[];
 }
