@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Table} from 'antd';
+import {ConfigProvider, Empty, Table} from 'antd';
 import {ColumnsType, TableProps} from 'antd/es/table';
 import {stringify} from 'flatted';
 import useFetchData, {DataResult} from './useFetchData';
@@ -92,7 +92,7 @@ const CrudTable = <
   }, [stringify(propColumns)]);
 
   return (
-    <div>
+    <ConfigProvider renderEmpty={() => <Empty />}>
       <Table
         {...rest}
         loading={action.loading || props.loading}
@@ -100,7 +100,7 @@ const CrudTable = <
         columns={columns}
         pagination={pagination}
       />
-    </div>
+    </ConfigProvider>
   );
 };
 
